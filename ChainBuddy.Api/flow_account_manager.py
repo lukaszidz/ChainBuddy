@@ -1,7 +1,10 @@
 from flow_py_sdk import ProposalKey, flow_client, Tx
-from common.config import Config
-import asyncio
+from flow_py_sdk.signer import InMemorySigner
+from flow_py_sdk import HashAlgo, SignAlgo
+from flow_py_sdk.cadence import Address
+from flow_py_sdk.cadence.types import UFix64
 
+from common.config import Config
 
 class FlowAccountManager:
     def __init__(self, ctx: Config):
@@ -30,20 +33,19 @@ class FlowAccountManager:
             "Account Keys": len(account.keys),
         }
 
-    async def execute_transaction(self, account_address, new_signer):
+    async def execute_transaction(self, account_address, signer_key, amount):
         if self.client is None:
             raise RuntimeError("FlowClient is not initialized.")
 
         latest_block = await self.client.get_latest_block()
-        proposer = await self.client.get_account_at_latest_block(
-            address=account_address.bytes
-        )
+        proposer = await self.client.get_account_at_latest_block(address=account_address.bytes)
+        signer = InMemorySigner(hash_algo=HashAlgo.SHA3_256, sign_algo=SignAlgo.ECDSA_P256, private_key_hex=signer_key)
 
         with open("cadence/mint_buddy.cdc", "r") as file:
             mint_transaction = file.read()
 
         transaction = Tx(
-            mint_transaction,
+            code=mint_transaction,
             reference_block_id=latest_block.id,
             payer=account_address,
             proposal_key=ProposalKey(
@@ -54,7 +56,8 @@ class FlowAccountManager:
         ).with_envelope_signature(
             account_address,
             0,
-            new_signer,
+            signer,
         )
-
+        transaction.add_arguments(Address(proposer.address), UFix64(amount))
+        
         await self.client.execute_transaction(transaction)

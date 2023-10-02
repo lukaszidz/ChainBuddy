@@ -57,7 +57,8 @@ class FlowAccountManager:
             account_address,
             0,
             signer,
-        )
+        ).add_authorizers(account_address)
+
         transaction.add_arguments(Address(proposer.address), UFix64(amount))
         
         await self.client.execute_transaction(transaction)

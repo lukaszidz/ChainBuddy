@@ -1,4 +1,4 @@
-from flow_py_sdk import ProposalKey, flow_client, Tx
+from flow_py_sdk import ProposalKey, cadence, flow_client, Tx, Script
 from flow_py_sdk.signer import InMemorySigner
 from flow_py_sdk import HashAlgo, SignAlgo
 from flow_py_sdk.cadence import Address
@@ -27,10 +27,17 @@ class FlowAccountManager:
 
         account = await self.client.get_account(address=account_address.bytes)
 
+        with open("cadence/get_buddy.cdc", "r") as file:
+            get_buddy = file.read()
+
+        result: cadence.Value = await self.client.execute_script(Script(code=get_buddy, arguments=[account_address]))  
+        balance = result.as_type(cadence.UFix64).value
+
         return {
             "Account Address": account.address.hex(),
             "Account Balance": account.balance,
             "Account Keys": len(account.keys),
+            "Buddy Tokens": balance
         }
 
     async def execute_transaction(self, account_address, signer_key, amount):

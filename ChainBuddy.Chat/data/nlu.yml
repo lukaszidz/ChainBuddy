@@ -1,0 +1,26 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hello
+    - Hey there
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - Goodbye
+    - See you later
+
+- intent: get_account_info
+  examples: |
+    - I need information on account [0x1234](account_address)
+    - Can you provide info for account [0x5678](account_address)?
+    - What’s the info for account [0x91011](account_address)?
+
+- intent: buy_buddy_token
+  examples: |
+    - I want to buy Buddy Token
+    - Purchase Buddy Token
+    - Buy some Buddy Tokens for me

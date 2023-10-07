@@ -1,0 +1,27 @@
+version: "3.1"
+
+stories:
+- story: Greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: Saying Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Feeling Happy
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- story: Fetch Account Info
+  steps:
+  - intent: get_account_info
+  - action: action_get_account_info
+
+- story: Buy Buddy Token
+  steps:
+  - intent: buy_buddy_token
+  - action: action_buy_buddy_token

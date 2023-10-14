@@ -24,3 +24,20 @@ nlu:
     - I want to buy Buddy Token
     - Purchase Buddy Token
     - Buy some Buddy Tokens for me
+
+- intent: buy_buddy_token_one_message
+  examples: |
+    - Buy Buddy Token using address [0x1234](account_address) and signer key [ABC123](signer_key)
+    - Purchase Buddy Token with the address [0x5678](account_address) and key [DEF456](signer_key)
+
+- intent: provide_account_address
+  examples: |
+    - My address is [0x1234](account_address)
+    - Here's my account address: [0x1234](account_address)
+    - Address: [0x1234](account_address)
+
+- intent: provide_signer_key
+  examples: |
+    - My signer key is [ABC123](signer_key)
+    - Here's my key: [DEF456](signer_key)
+    - Signer key: [XYZ789](signer_key)

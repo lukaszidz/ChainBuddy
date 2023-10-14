@@ -10,6 +10,9 @@ intents:
   - bot_challenge
   - get_account_info
   - buy_buddy_token
+  - buy_buddy_token_one_message
+  - provide_account_address
+  - provide_signer_key
 
 entities:
   - account_address
@@ -19,6 +22,8 @@ entities:
 actions:
   - action_get_account_info
   - action_buy_buddy_token
+  - utter_ask_account_address
+  - utter_ask_signer_key
 
 slots:
   account_address:

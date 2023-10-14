@@ -21,7 +21,24 @@ stories:
   - intent: get_account_info
   - action: action_get_account_info
 
+- story: Buy Buddy Token with all info in one message
+  steps:
+  - intent: buy_buddy_token_one_message
+    entities:
+      - account_address: "0x1234"
+      - signer_key: "ABC123"
+  - action: action_buy_buddy_token
+
+
 - story: Buy Buddy Token
   steps:
   - intent: buy_buddy_token
+  - action: utter_ask_account_address
+  - intent: provide_account_address
+    entities:
+      - account_address: "0x1234"
+  - action: utter_ask_signer_key
+  - intent: provide_signer_key
+    entities:
+      - signer_key: "ABC123"
   - action: action_buy_buddy_token

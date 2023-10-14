@@ -18,13 +18,23 @@ class ActionGetAccountInfo(Action):
         dispatcher.utter_message(text=f"Account info: {response.json()}")
 
 class ActionBuyBuddyToken(Action):
+    def __init__(self) -> None:
+        load_dotenv()
+        self.buddy_api_url = os.environ.get('BUDDY_API_URL')
+            
     def name(self):
         return "action_buy_buddy_token"
 
     def run(self, dispatcher, tracker, domain):
         account_address = tracker.get_slot("account_address")
         signer_key = tracker.get_slot("signer_key")
+
+        if not account_address or not signer_key:
+            dispatcher.utter_message(text=f'Missing information for transaction. Account address: {account_address}. Signer key: {signer_key}')
+            return
+        
         amount = 1  # This could also be extracted from user message if needed
+        
         payload = {
             "account_address": account_address,
             "signer_key": signer_key,

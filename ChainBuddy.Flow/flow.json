@@ -10,18 +10,27 @@
 	"accounts": {
 		"emulator-account": {
 			"address": "f8d6e0586b0a20c7",
-			"key": "6d12eebfef9866c9b6fa92b97c6e705c26a1785b1e7944da701fc545a51d4673"
+			"key": "YOUR-KEY-HERE"
 		},
 		"emulator-tester": {
 			"address": "179b6b1cb6755e31",
-			"key": "bbc5b337318aa989c8fb93ae7557cb5a6802df397b1d7f9991d3d12eab469f5a"
-		}
+			"key": "YOUR-KEY-HERE"
+		},
+		"testnet-account": {
+            "address": "0x74fd73ac49b42e43",
+            "key": "YOUR-KEY-HERE"
+        }
 	},
 	"deployments": {
 		"emulator": {
 			"emulator-account": [
 				"BuddyToken"
 			]
-		}
+		},
+		"testnet": {
+            "testnet-account": [
+                "BuddyToken"
+            ]
+        }
 	}
 }

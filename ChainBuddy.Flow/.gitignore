@@ -42,3 +42,6 @@ tools/golangci-lint/golangci-lint
 tools/maprange/maprange
 tools/unkeyed/unkeyed
 *.so
+
+# Flow configuration
+flow.json

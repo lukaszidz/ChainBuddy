@@ -12,8 +12,8 @@ class Config(object):
     def __init__(self, config_location: Path) -> None:
         super().__init__()
 
-        self.access_node_host: str = "localhost"
-        self.access_node_port: int = 3569
+        self.access_node_host: str = "access.devnet.nodes.onflow.org"
+        self.access_node_port: int = 9000
 
         self.service_account_key_id: int = 0
         # noinspection PyBroadException
@@ -21,16 +21,16 @@ class Config(object):
             with open(config_location) as json_file:
                 data = json.load(json_file)
                 self.service_account_address = Address.from_hex(
-                    data["accounts"]["emulator-account"]["address"]
+                    data["accounts"]["testnet-account"]["address"]
                 )
                 self.service_account_signer = InMemorySigner(
                     hash_algo=HashAlgo.from_string(
-                        data["accounts"]["emulator-account"]["hashAlgorithm"]
+                        data["accounts"]["testnet-account"]["hashAlgorithm"]
                     ),
                     sign_algo=SignAlgo.from_string(
-                        data["accounts"]["emulator-account"]["sigAlgorithm"]
+                        data["accounts"]["testnet-account"]["sigAlgorithm"]
                     ),
-                    private_key_hex=data["accounts"]["emulator-account"]["keys"],
+                    private_key_hex=data["accounts"]["testnet-account"]["keys"],
                 )
         except Exception:
             log.warning(

@@ -11,11 +11,17 @@
     },
     "accounts": {
       "emulator-account": {
-              "address": "f8d6e0586b0a20c7",
-              "keys": "39a162b7ea58314c2cda19f32020b3992e9017a0acc5b3ac53ce3a3f8511a877",
+        "address": "f8d6e0586b0a20c7",
+        "keys": "39a162b7ea58314c2cda19f32020b3992e9017a0acc5b3ac53ce3a3f8511a877",
         "sigAlgorithm": "ECDSA_P256",
         "hashAlgorithm": "SHA3_256"
-      }
+      },
+      "testnet-account": {
+        "address": "0x74fd73ac49b42e43",
+        "keys": "d5290ba5d7a5a16929ad7fe07218ff429118d4b1ce7f95c6aa304cc7c52b8bf3",
+        "sigAlgorithm": "ECDSA_P256",
+        "hashAlgorithm": "SHA3_256"
+      }      
     },
     "deployments": {}
   }

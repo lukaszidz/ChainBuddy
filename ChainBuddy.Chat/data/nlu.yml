@@ -15,29 +15,48 @@ nlu:
 
 - intent: get_account_info
   examples: |
-    - I need information on account [0x1234](account_address)
-    - Can you provide info for account [0x5678](account_address)?
-    - What’s the info for account [0x91011](account_address)?
+    - Can you show me the details for account [0x24fd73ac49b42e43](account_address)?
+    - I need to check the information on account [0x74fd73ac49b42e43](account_address).
+    - What information is available for account [0xA4fd43ac69b52e53](account_address)?
+    - Please provide the account details for [0x94fd23bc49b82e33](account_address).
+    - Could you retrieve the data for account [0x84fd13ac49a42e23](account_address)?
+    - I'm interested in the details of account [0xB4fd53ac79c52e63](account_address).
+    - Show me all the info you have on account [0xC4fd63ac89d52e73](account_address).
+    - I’d like to view the information of account [0xD4fd73ac99e52e83](account_address).
+    - What can you tell me about account [0xE4fd83aca9f52e93](account_address)?
 
 - intent: buy_buddy_token
   examples: |
     - I want to buy Buddy Token
     - Purchase Buddy Token
     - Buy some Buddy Tokens for me
+    - How can I acquire Buddy Tokens?
+    - I’d like to buy Buddy Tokens.
 
 - intent: buy_buddy_token_one_message
   examples: |
-    - Buy Buddy Token using address [0x1234](account_address) and signer key [ABC123](signer_key)
-    - Purchase Buddy Token with the address [0x5678](account_address) and key [DEF456](signer_key)
+    - Buy Buddy Token using address [0x1234ABCDE](account_address) and signer key [ABC123XYZ](signer_key)
+    - Purchase Buddy Token with the address [0x5678FEDC](account_address) and key [DEF456LMN](signer_key)
+    - I want to buy Buddy Tokens using my account [0x91011GHI](account_address) with the signer key [GHI789OPQ](signer_key)
+    - Can I buy Buddy Tokens with account [0x11121314](account_address) using [JKL012RST](signer_key) as my signer key?
+    - Initiate Buddy Token purchase for account [0x13141516](account_address) using signer key [MNO345UVW](signer_key)
+    - Execute Buddy Token transaction with address [0x17181920](account_address) and signer key [XYZ678ABC](signer_key)
+    - Facilitate Buddy Token buy order using account [0x21222324](account_address) with key [DEF123XYZ](signer_key)
+    - Conduct Buddy Token purchase using account [0x25262728](account_address) and signer key [OPQ456RST](signer_key)
+    - Start Buddy Token acquisition with address [0x292A2B2C](account_address) using key [UVW789CDE](signer_key)
 
 - intent: provide_account_address
   examples: |
     - My address is [0x1234](account_address)
     - Here's my account address: [0x1234](account_address)
-    - Address: [0x1234](account_address)
+    - Account Address: [0x1234](account_address)
+    - The account address I'm using is [0x5678](account_address)
+    - You can find my account at address [0x91011](account_address)
 
 - intent: provide_signer_key
   examples: |
     - My signer key is [ABC123](signer_key)
     - Here's my key: [DEF456](signer_key)
     - Signer key: [XYZ789](signer_key)
+    - The signer key for the transaction is [GHI012](signer_key)
+    - You will need my signer key, which is [JKL345](signer_key)

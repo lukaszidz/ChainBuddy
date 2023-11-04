@@ -19,6 +19,8 @@ stories:
 - story: Fetch Account Info
   steps:
   - intent: get_account_info
+    entities:
+      - account_address: "0x1754"
   - action: action_get_account_info
 
 - story: Buy Buddy Token with all info in one message
